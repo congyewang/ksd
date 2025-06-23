@@ -1,9 +1,3 @@
-from .stein import (
-    KernelSteinDiscrepancyInterface,
-    KernelSteinDiscrepancyJax,
-)
+from .stein import KernelSteinDiscrepancyInterface, KernelSteinDiscrepancyJax
 
-___all__ = [
-    "KernelSteinDiscrepancyInterface",
-    "KernelSteinDiscrepancyJax",
-]
+__all__ = ["KernelSteinDiscrepancyInterface", "KernelSteinDiscrepancyJax"]
