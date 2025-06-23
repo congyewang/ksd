@@ -56,11 +56,5 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
 }
 
-# -- Options for linkcheck extension ----------------------------------------
-linkcheck_ignore = [
-    r"https://ntfy\.greenlimes\.top/.*",
-    r"https://alist\.greenlimes\.top/.*",
-]
-
 # -- Options for reference handling ----------------------------------------
 default_role = "any"
