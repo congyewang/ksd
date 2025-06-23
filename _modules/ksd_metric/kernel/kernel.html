@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ksd_metric.kernel.kernel &mdash; ksd-metric  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ksd-metric
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ksd-metric</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ksd_metric.kernel.kernel</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ksd_metric.kernel.kernel</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacfwd</span><span class="p">,</span> <span class="n">jit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jaxtyping</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Float</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">DifferentiableFunction</span>
+
+
+<div class="viewcode-block" id="KernelInterface">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">KernelInterface</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="KernelInterface.__init__">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">base_kernel_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">],</span> <span class="n">ArrayLike</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the KernelInterface with a base kernel function.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            base_kernel_function (Callable[[ArrayLike, ArrayLike], ArrayLike]): A function that computes the kernel between two points.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_base_kernel_function</span> <span class="o">=</span> <span class="n">base_kernel_function</span></div>
+
+
+<div class="viewcode-block" id="KernelInterface.base_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface.base_kernel_function">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">base_kernel_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base kernel function to be implemented by subclasses.</span>
+<span class="sd">        This function should return the base kernel function used in KSD.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (ArrayLike): First input data point.</span>
+<span class="sd">            y (ArrayLike): Second input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ArrayLike: The value of the base kernel function at (x, y).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;base_kernel_function must be implemented.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelInterface.partial_derivative_x_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface.partial_derivative_x_kernel_function">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">partial_derivative_x_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the partial derivative of the kernel function with respect to x.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (ArrayLike): Input data point.</span>
+<span class="sd">            y (ArrayLike): Input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ArrayLike: The partial derivative of the kernel function with respect to x.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;partial_derivative_x_kernel_function must be implemented.&quot;</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelInterface.partial_derivative_y_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface.partial_derivative_y_kernel_function">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">partial_derivative_y_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the partial derivative of the kernel function with respect to y.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            y (ArrayLike): Input data point.</span>
+<span class="sd">            x (ArrayLike): Input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ArrayLike: The partial derivative of the kernel function with respect to y.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;partial_derivative_y_kernel_function must be implemented.&quot;</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelInterface.cross_partial_derivative_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelInterface.cross_partial_derivative_kernel_function">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cross_partial_derivative_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the cross partial derivative of the kernel function with respect to x and y.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (ArrayLike): First input data point.</span>
+<span class="sd">            y (ArrayLike): Second input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ArrayLike: The cross partial derivative of the kernel function with respect to x and y.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;cross_partial_derivative_kernel_function must be implemented.&quot;</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="KernelJax">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">KernelJax</span><span class="p">(</span><span class="n">KernelInterface</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a kernel function for the KSD.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="KernelJax.__init__">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_kernel_function</span><span class="p">:</span> <span class="n">DifferentiableFunction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the kernel with a base kernel function.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            base_kernel_function (DifferentiableFunction): A function that computes the kernel between two points.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_kernel_function</span><span class="o">=</span><span class="n">base_kernel_function</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelJax.base_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax.base_kernel_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">base_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base kernel function to be implemented by subclasses.</span>
+<span class="sd">        This function should return the base kernel function used in KSD.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): First input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Second input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Float[Array, &quot;num&quot;]: The value of the base kernel function at (x, y).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_kernel_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelJax.partial_derivative_x_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax.partial_derivative_x_kernel_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">partial_derivative_x_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the partial derivative of the kernel function with respect to x.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Float[Array, &quot;num&quot;]: The partial derivative of the kernel function with respect to x.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">jit</span><span class="p">(</span><span class="n">jacfwd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_function</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="mi">0</span><span class="p">))(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelJax.partial_derivative_y_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax.partial_derivative_y_kernel_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">partial_derivative_y_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the partial derivative of the kernel function with respect to y.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Float[Array, &quot;num&quot;]: The partial derivative of the kernel function with respect to y.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">jit</span><span class="p">(</span><span class="n">jacfwd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_kernel_function</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="mi">1</span><span class="p">))(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="KernelJax.cross_partial_derivative_kernel_function">
+<a class="viewcode-back" href="../../../kernel.html#ksd_metric.kernel.KernelJax.cross_partial_derivative_kernel_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cross_partial_derivative_kernel_function</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the cross partial derivative of the kernel function with respect to x and y.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): First input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Second input data point.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Float[Array, &quot;num&quot;]: The cross partial derivative of the kernel function with respect to x and y.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">jit</span><span class="p">(</span><span class="n">jacfwd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">partial_derivative_y_kernel_function</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="mi">0</span><span class="p">))(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Congye Wang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

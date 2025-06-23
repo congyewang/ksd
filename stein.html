@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>stein &mdash; ksd  documentation</title>
+  <title>stein &mdash; ksd-metric  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -32,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            ksd
+            ksd-metric
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -46,7 +46,21 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="kernel.html">kernel</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">stein</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">stein</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.__init__"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.stein_kernel"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.stein_kernel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.kernel_stein_discrepancy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyJax"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.__init__"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.stein_kernel"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.stein_kernel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.kernel_stein_discrepancy"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.kernel_stein_discrepancy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="target.html">target</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
 </ul>
@@ -59,7 +73,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ksd</a>
+          <a href="index.html">ksd-metric</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -78,8 +92,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="stein">
-<h1>stein<a class="headerlink" href="#stein" title="Link to this heading"></a></h1>
+  <section id="module-ksd_metric.stein">
+<span id="stein"></span><h1>stein<a class="headerlink" href="#module-ksd_metric.stein" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.stein.</span></span><span class="sig-name descname"><span class="pre">KernelSteinDiscrepancyInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyInterface.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyInterface.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the KernelSteinDiscrepancyInterface with a target distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface" title="ksd_metric.target.TargetDistributionInterface"><em>TargetDistributionInterface</em></a>) – The target distribution interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyInterface.stein_kernel">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stein_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyInterface.stein_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.stein_kernel" title="Link to this definition"></a></dt>
+<dd><p>Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the Stein kernel at (x, y).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Float[Array, “num”]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kernel_stein_discrepancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyInterface.kernel_stein_discrepancy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy" title="Link to this definition"></a></dt>
+<dd><p>Computes the kernel Stein discrepancy for the given samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>samples</strong> (<em>ArrayLike</em>) – A collection of samples from the target distribution.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the kernel Stein discrepancy for the given samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyJax">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.stein.</span></span><span class="sig-name descname"><span class="pre">KernelSteinDiscrepancyJax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyJax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyJax" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ksd_metric.stein.KernelSteinDiscrepancyInterface" title="ksd_metric.stein.stein.KernelSteinDiscrepancyInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyJax.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyJax.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the KernelSteinDiscrepancyJax with a target distribution and a kernel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionJax" title="ksd_metric.target.TargetDistributionJax"><em>TargetDistributionJax</em></a>) – The target distribution.</p></li>
+<li><p><strong>kernel</strong> (<a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax" title="ksd_metric.kernel.KernelJax"><em>KernelJax</em></a>) – The kernel function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyJax.stein_kernel">
+<span class="sig-name descname"><span class="pre">stein_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyJax.stein_kernel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.stein_kernel" title="Link to this definition"></a></dt>
+<dd><p>Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the Stein kernel at (x, y).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Float[Array, “num”]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ksd_metric.stein.KernelSteinDiscrepancyJax.kernel_stein_discrepancy">
+<span class="sig-name descname"><span class="pre">kernel_stein_discrepancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">samples</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/stein/stein.html#KernelSteinDiscrepancyJax.kernel_stein_discrepancy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.stein.KernelSteinDiscrepancyJax.kernel_stein_discrepancy" title="Link to this definition"></a></dt>
+<dd><p>Computes the kernel Stein discrepancy for the given samples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>samples</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num dim&quot;</em><em>]</em>) – A collection of samples from the target distribution.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the kernel Stein discrepancy for the given samples.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 

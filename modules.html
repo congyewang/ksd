@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documentation &mdash; ksd  documentation</title>
+  <title>Documentation &mdash; ksd-metric  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="kernel" href="kernel.html" />
-    <link rel="prev" title="ksd documentation" href="index.html" /> 
+    <link rel="prev" title="ksd-matrix documentation" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            ksd
+            ksd-metric
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -59,7 +59,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ksd</a>
+          <a href="index.html">ksd-metric</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -81,10 +81,63 @@
 <h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="kernel.html">kernel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stein.html">stein</a></li>
-<li class="toctree-l1"><a class="reference internal" href="target.html">target</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel.html">kernel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface"><code class="docutils literal notranslate"><span class="pre">KernelInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface.__init__"><code class="docutils literal notranslate"><span class="pre">KernelInterface.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface.base_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelInterface.base_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface.partial_derivative_x_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelInterface.partial_derivative_x_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface.partial_derivative_y_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelInterface.partial_derivative_y_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface.cross_partial_derivative_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelInterface.cross_partial_derivative_kernel_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax"><code class="docutils literal notranslate"><span class="pre">KernelJax</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax.__init__"><code class="docutils literal notranslate"><span class="pre">KernelJax.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax.base_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelJax.base_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax.partial_derivative_x_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelJax.partial_derivative_x_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax.partial_derivative_y_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelJax.partial_derivative_y_kernel_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelJax.cross_partial_derivative_kernel_function"><code class="docutils literal notranslate"><span class="pre">KernelJax.cross_partial_derivative_kernel_function()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stein.html">stein</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.__init__"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.stein_kernel"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.stein_kernel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyInterface.kernel_stein_discrepancy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyJax"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyJax.__init__"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyJax.stein_kernel"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.stein_kernel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="stein.html#ksd_metric.stein.KernelSteinDiscrepancyJax.kernel_stein_discrepancy"><code class="docutils literal notranslate"><span class="pre">KernelSteinDiscrepancyJax.kernel_stein_discrepancy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="target.html">target</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface"><code class="docutils literal notranslate"><span class="pre">TargetDistributionInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface.log_target_pdf"><code class="docutils literal notranslate"><span class="pre">TargetDistributionInterface.log_target_pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf"><code class="docutils literal notranslate"><span class="pre">TargetDistributionInterface.grad_log_target_pdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionJax"><code class="docutils literal notranslate"><span class="pre">TargetDistributionJax</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionJax.__init__"><code class="docutils literal notranslate"><span class="pre">TargetDistributionJax.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionJax.log_target_pdf"><code class="docutils literal notranslate"><span class="pre">TargetDistributionJax.log_target_pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionJax.grad_log_target_pdf"><code class="docutils literal notranslate"><span class="pre">TargetDistributionJax.grad_log_target_pdf()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#ksd_metric.utils.JaxKernelFunction"><code class="docutils literal notranslate"><span class="pre">JaxKernelFunction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#ksd_metric.utils.JaxKernelFunction.rbf"><code class="docutils literal notranslate"><span class="pre">JaxKernelFunction.rbf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#ksd_metric.utils.JaxKernelFunction.linear"><code class="docutils literal notranslate"><span class="pre">JaxKernelFunction.linear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#ksd_metric.utils.JaxKernelFunction.imq"><code class="docutils literal notranslate"><span class="pre">JaxKernelFunction.imq()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -93,7 +146,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="ksd documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="ksd-matrix documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="kernel.html" class="btn btn-neutral float-right" title="kernel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
