@@ -3,8 +3,15 @@ name = "ksd"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 dependencies = [
     "jax>=0.4.13",
+    "jaxlib>=0.4.13",
     "jaxtyping>=0.2.19",
+    "loguru>=0.7.3",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
 ]
