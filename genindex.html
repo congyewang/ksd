@@ -74,6 +74,7 @@
  <a href="#_"><strong>_</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
  | <a href="#K"><strong>K</strong></a>
@@ -81,6 +82,8 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  
 </div>
 <h2 id="_">_</h2>
@@ -90,6 +93,12 @@
 
       <ul>
         <li><a href="kernel.html#ksd.kernel.KernelJax.__init__">(ksd.kernel.KernelJax method)</a>
+</li>
+        <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyInterface.__init__">(ksd.stein.KernelSteinDiscrepancyInterface method)</a>
+</li>
+        <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyJax.__init__">(ksd.stein.KernelSteinDiscrepancyJax method)</a>
+</li>
+        <li><a href="target.html#ksd.target.TargetDistributionJax.__init__">(ksd.target.TargetDistributionJax method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -119,6 +128,18 @@
   </ul></td>
 </tr></table>
 
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="target.html#ksd.target.TargetDistributionInterface.grad_log_target_pdf">grad_log_target_pdf() (ksd.target.TargetDistributionInterface method)</a>
+
+      <ul>
+        <li><a href="target.html#ksd.target.TargetDistributionJax.grad_log_target_pdf">(ksd.target.TargetDistributionJax method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -138,9 +159,19 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy">kernel_stein_discrepancy() (ksd.stein.KernelSteinDiscrepancyInterface method)</a>
+
+      <ul>
+        <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyJax.kernel_stein_discrepancy">(ksd.stein.KernelSteinDiscrepancyJax method)</a>
+</li>
+      </ul></li>
       <li><a href="kernel.html#ksd.kernel.KernelInterface">KernelInterface (class in ksd.kernel)</a>
 </li>
       <li><a href="kernel.html#ksd.kernel.KernelJax">KernelJax (class in ksd.kernel)</a>
+</li>
+      <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyInterface">KernelSteinDiscrepancyInterface (class in ksd.stein)</a>
+</li>
+      <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyJax">KernelSteinDiscrepancyJax (class in ksd.stein)</a>
 </li>
       <li>
     ksd.kernel
@@ -151,6 +182,20 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    ksd.stein
+
+      <ul>
+        <li><a href="stein.html#module-ksd.stein">module</a>
+</li>
+      </ul></li>
+      <li>
+    ksd.target
+
+      <ul>
+        <li><a href="target.html#module-ksd.target">module</a>
+</li>
+      </ul></li>
       <li>
     ksd.utils
 
@@ -167,6 +212,14 @@
       <li><a href="utils.html#ksd.utils.JaxKernelFunction.linear">linear() (ksd.utils.JaxKernelFunction static method)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="target.html#ksd.target.TargetDistributionInterface.log_target_pdf">log_target_pdf() (ksd.target.TargetDistributionInterface method)</a>
+
+      <ul>
+        <li><a href="target.html#ksd.target.TargetDistributionJax.log_target_pdf">(ksd.target.TargetDistributionJax method)</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
@@ -177,6 +230,10 @@
 
       <ul>
         <li><a href="kernel.html#module-ksd.kernel">ksd.kernel</a>
+</li>
+        <li><a href="stein.html#module-ksd.stein">ksd.stein</a>
+</li>
+        <li><a href="target.html#module-ksd.target">ksd.target</a>
 </li>
         <li><a href="utils.html#module-ksd.utils">ksd.utils</a>
 </li>
@@ -208,6 +265,30 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="utils.html#ksd.utils.JaxKernelFunction.rbf">rbf() (ksd.utils.JaxKernelFunction static method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyInterface.stein_kernel">stein_kernel() (ksd.stein.KernelSteinDiscrepancyInterface method)</a>
+
+      <ul>
+        <li><a href="stein.html#ksd.stein.KernelSteinDiscrepancyJax.stein_kernel">(ksd.stein.KernelSteinDiscrepancyJax method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="target.html#ksd.target.TargetDistributionInterface">TargetDistributionInterface (class in ksd.target)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="target.html#ksd.target.TargetDistributionJax">TargetDistributionJax (class in ksd.target)</a>
 </li>
   </ul></td>
 </tr></table>
