@@ -1,4 +1,4 @@
-# KSD
+# KSD-Metric
 Kernel Stein Discrepancy
 
 ## Example
@@ -7,10 +7,10 @@ import jax
 from jax import numpy as jnp
 from jax.scipy.stats import multivariate_normal
 
-from ksd.kernel import KernelJax
-from ksd.stein import KernelSteinDiscrepancyJax
-from ksd.target import TargetDistributionJax
-from ksd.utils import JaxKernelFunction
+from ksd_metric.kernel import KernelJax
+from ksd_metric.stein import KernelSteinDiscrepancyJax
+from ksd_metric.target import TargetDistributionJax
+from ksd_metric.utils import JaxKernelFunction
 
 # Example usage of KernelSteinDiscrepancyJax with a multivariate normal distribution
 # and the inverse multiquadric kernel function.
