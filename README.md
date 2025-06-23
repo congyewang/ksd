@@ -1,7 +1,25 @@
 # KSD-Metric
 Kernel Stein Discrepancy
 
+## Install
+
+### Pypi
+
+```{bash}
+pip install ksd-metric
+```
+
+### Build from Source
+
+```{bash}
+# Install uv first
+uv python install 3.10
+uv sync
+uv pip install .
+```
+
 ## Example
+
 ```{python}
 import jax
 from jax import numpy as jnp
