@@ -1,4 +1,4 @@
-# ksd
+# KSD
 Kernel Stein Discrepancy
 
 ## Example
