@@ -122,8 +122,8 @@ This function should return the base kernel function used in KSD.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>ArrayLike</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>ArrayLike</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -162,8 +162,8 @@ This function should return the base kernel function used in KSD.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
 <li><p><strong>x</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -182,8 +182,8 @@ This function should return the base kernel function used in KSD.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>ArrayLike</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>ArrayLike</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>ArrayLike</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -221,8 +221,8 @@ This function should return the base kernel function used in KSD.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -240,7 +240,10 @@ This function should return the base kernel function used in KSD.</p>
 <dd><p>Computes the partial derivative of the kernel function with respect to x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The partial derivative of the kernel function with respect to x.</p>
@@ -257,7 +260,10 @@ This function should return the base kernel function used in KSD.</p>
 <dd><p>Computes the partial derivative of the kernel function with respect to y.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The partial derivative of the kernel function with respect to y.</p>
@@ -275,8 +281,8 @@ This function should return the base kernel function used in KSD.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

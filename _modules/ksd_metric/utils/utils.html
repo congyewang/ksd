@@ -86,10 +86,17 @@
 <a class="viewcode-back" href="../../../documentation/utils.html#ksd_metric.utils.JaxKernelFunction.rbf">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">rbf</span><span class="p">(</span>
-        <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
+        <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Radial Basis Function (RBF) kernel, also known as Gaussian kernel.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            sigma (float): The bandwidth parameter for the RBF kernel.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Float[Array, &quot;num&quot;]: The value of the RBF kernel at (x, y).</span>
@@ -101,9 +108,16 @@
 <div class="viewcode-block" id="JaxKernelFunction.linear">
 <a class="viewcode-back" href="../../../documentation/utils.html#ksd_metric.utils.JaxKernelFunction.linear">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">linear</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Linear kernel function.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Float[Array, &quot;num&quot;]: The value of the linear kernel at (x, y).</span>
@@ -122,6 +136,12 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Inverse Multiquadric kernel function.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            linv (Float[Array, &quot;num num&quot;]): Inverse of the length scale matrix.</span>
+<span class="sd">            beta (float): The shape parameter for the inverse multiquadric kernel.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Float[Array, &quot;num&quot;]: The value of the inverse multiquadric kernel at (x, y).</span>

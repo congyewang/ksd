@@ -88,13 +88,16 @@
 <div class="viewcode-block" id="KernelSteinDiscrepancyInterface.__init__">
 <a class="viewcode-back" href="../../../documentation/stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">TargetDistributionInterface</span><span class="p">,</span> <span class="n">kernel</span><span class="p">:</span> <span class="n">KernelInterface</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">target</span><span class="p">:</span> <span class="n">TargetDistributionInterface</span><span class="p">,</span>
+        <span class="n">kernel</span><span class="p">:</span> <span class="n">KernelInterface</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the KernelSteinDiscrepancyInterface with a target distribution.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            target (TargetDistributionInterface): The target distribution interface.</span>
+<span class="sd">            kernel (KernelInterface): The kernel interface used for computing the Stein kernel.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel</span></div>
@@ -103,13 +106,17 @@
 <div class="viewcode-block" id="KernelSteinDiscrepancyInterface.stein_kernel">
 <a class="viewcode-back" href="../../../documentation/stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.stein_kernel">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">stein_kernel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stein_kernel</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            x (Float[Array, &quot;num&quot;]): First input data point.</span>
-<span class="sd">            y (Float[Array, &quot;num&quot;]): Second input data point.</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Float[Array, &quot;num&quot;]: The value of the Stein kernel at (x, y).</span>
@@ -120,7 +127,10 @@
 <div class="viewcode-block" id="KernelSteinDiscrepancyInterface.kernel_stein_discrepancy">
 <a class="viewcode-back" href="../../../documentation/stein.html#ksd_metric.stein.KernelSteinDiscrepancyInterface.kernel_stein_discrepancy">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">kernel_stein_discrepancy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">samples</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">kernel_stein_discrepancy</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">samples</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the kernel Stein discrepancy for the given samples.</span>
 
@@ -159,14 +169,16 @@
 <a class="viewcode-back" href="../../../documentation/stein.html#ksd_metric.stein.KernelSteinDiscrepancyJax.stein_kernel">[docs]</a>
     <span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">stein_kernel</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">],</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num&quot;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            x (Float[Array, &quot;num&quot;]): First input data point.</span>
-<span class="sd">            y (Float[Array, &quot;num&quot;]): Second input data point.</span>
+<span class="sd">            x (Float[Array, &quot;num&quot;]): Input data point.</span>
+<span class="sd">            y (Float[Array, &quot;num&quot;]): Input data point.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Float[Array, &quot;num&quot;]: The value of the Stein kernel at (x, y).</span>
@@ -188,8 +200,18 @@
 
     <span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,))</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_vectorised_kernel_stein_discrepancy</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">samples</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">samples</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">],</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the kernel Stein discrepancy for a collection of samples.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            samples (Float[Array, &quot;num dim&quot;]): A collection of samples from the target distribution.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Float[Array, &quot;float&quot;]: The value of the kernel Stein discrepancy for the given samples</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">num</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stein_kernel</span><span class="p">,</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="n">in_axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))(</span>
             <span class="n">samples</span><span class="p">,</span> <span class="n">samples</span>

@@ -105,7 +105,10 @@
 <dd><p>Initializes the KernelSteinDiscrepancyInterface with a target distribution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface" title="ksd_metric.target.TargetDistributionInterface"><em>TargetDistributionInterface</em></a>) – The target distribution interface.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<a class="reference internal" href="target.html#ksd_metric.target.TargetDistributionInterface" title="ksd_metric.target.TargetDistributionInterface"><em>TargetDistributionInterface</em></a>) – The target distribution interface.</p></li>
+<li><p><strong>kernel</strong> (<a class="reference internal" href="kernel.html#ksd_metric.kernel.KernelInterface" title="ksd_metric.kernel.KernelInterface"><em>KernelInterface</em></a>) – The kernel interface used for computing the Stein kernel.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -117,8 +120,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -174,8 +177,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – First input data point.</p></li>
-<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Second input data point.</p></li>
+<li><p><strong>x</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
+<li><p><strong>y</strong> (<em>Float</em><em>[</em><em>Array</em><em>, </em><em>&quot;num&quot;</em><em>]</em>) – Input data point.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
