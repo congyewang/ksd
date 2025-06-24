@@ -1,24 +1,24 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>target &mdash; ksd-metric  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="utils" href="utils.html" />
     <link rel="prev" title="stein" href="stein.html" /> 
 </head>
@@ -31,11 +31,11 @@
 
           
           
-          <a href="index.html" class="icon icon-home">
+          <a href="../index.html" class="icon icon-home">
             ksd-metric
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -64,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="utils.html">utils</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/example.html">Examples</a></li>
 </ul>
 
         </div>
@@ -72,18 +73,18 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ksd-metric</a>
+          <a href="../index.html">ksd-metric</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">Documentation</a></li>
       <li class="breadcrumb-item active">target</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/target.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/documentation/target.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,12 +96,12 @@
 <span id="target"></span><h1>target<a class="headerlink" href="#module-ksd_metric.target" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionInterface">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.target.</span></span><span class="sig-name descname"><span class="pre">TargetDistributionInterface</span></span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.target.</span></span><span class="sig-name descname"><span class="pre">TargetDistributionInterface</span></span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Interface for target distributions used in Kernel Stein Discrepancy (KSD).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionInterface.log_target_pdf">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionInterface.log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface.log_target_pdf" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionInterface.log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface.log_target_pdf" title="Link to this definition"></a></dt>
 <dd><p>Logarithmic Probability Density Function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -117,7 +118,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grad_log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionInterface.grad_log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grad_log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionInterface.grad_log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf" title="Link to this definition"></a></dt>
 <dd><p>Gradient of Logarithmic Probability Density Function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -136,12 +137,12 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionJax">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.target.</span></span><span class="sig-name descname"><span class="pre">TargetDistributionJax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_target_pdf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionJax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.target.</span></span><span class="sig-name descname"><span class="pre">TargetDistributionJax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_target_pdf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionJax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ksd_metric.target.TargetDistributionInterface" title="ksd_metric.target.target.TargetDistributionInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetDistributionInterface</span></code></a></p>
 <p>Represents a target distribution for the KSD.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionJax.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_target_pdf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionJax.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_target_pdf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionJax.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.__init__" title="Link to this definition"></a></dt>
 <dd><p>Initializes the target distribution with a logarithmic probability density function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -152,7 +153,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionJax.log_target_pdf">
-<span class="sig-name descname"><span class="pre">log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionJax.log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.log_target_pdf" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionJax.log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.log_target_pdf" title="Link to this definition"></a></dt>
 <dd><p>Computes the log probability density at the given point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -169,7 +170,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.target.TargetDistributionJax.grad_log_target_pdf">
-<span class="sig-name descname"><span class="pre">grad_log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/target/target.html#TargetDistributionJax.grad_log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.grad_log_target_pdf" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">grad_log_target_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/target/target.html#TargetDistributionJax.grad_log_target_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.target.TargetDistributionJax.grad_log_target_pdf" title="Link to this definition"></a></dt>
 <dd><p>Gradient of Logarithmic Probability Density Function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

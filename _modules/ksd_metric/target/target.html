@@ -41,7 +41,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation/modules.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/example.html">Examples</a></li>
 </ul>
 
         </div>
@@ -79,14 +80,14 @@
 
 
 <div class="viewcode-block" id="TargetDistributionInterface">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionInterface">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionInterface">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TargetDistributionInterface</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Interface for target distributions used in Kernel Stein Discrepancy (KSD).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TargetDistributionInterface.log_target_pdf">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionInterface.log_target_pdf">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionInterface.log_target_pdf">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">log_target_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -102,7 +103,7 @@
 
 
 <div class="viewcode-block" id="TargetDistributionInterface.grad_log_target_pdf">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionInterface.grad_log_target_pdf">[docs]</a>
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">grad_log_target_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -120,14 +121,14 @@
 
 
 <div class="viewcode-block" id="TargetDistributionJax">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionJax">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionJax">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TargetDistributionJax</span><span class="p">(</span><span class="n">TargetDistributionInterface</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a target distribution for the KSD.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TargetDistributionJax.__init__">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionJax.__init__">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionJax.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_target_pdf</span><span class="p">:</span> <span class="n">DifferentiableFunction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the target distribution with a logarithmic probability density function.</span>
@@ -139,7 +140,7 @@
 
 
 <div class="viewcode-block" id="TargetDistributionJax.log_target_pdf">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionJax.log_target_pdf">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionJax.log_target_pdf">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">log_target_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the log probability density at the given point.</span>
@@ -154,7 +155,7 @@
 
 
 <div class="viewcode-block" id="TargetDistributionJax.grad_log_target_pdf">
-<a class="viewcode-back" href="../../../target.html#ksd_metric.target.TargetDistributionJax.grad_log_target_pdf">[docs]</a>
+<a class="viewcode-back" href="../../../documentation/target.html#ksd_metric.target.TargetDistributionJax.grad_log_target_pdf">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">grad_log_target_pdf</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num dim&quot;</span><span class="p">]:</span>

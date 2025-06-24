@@ -1,24 +1,25 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>utils &mdash; ksd-metric  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../examples/example.html" />
     <link rel="prev" title="target" href="target.html" /> 
 </head>
 
@@ -30,11 +31,11 @@
 
           
           
-          <a href="index.html" class="icon icon-home">
+          <a href="../index.html" class="icon icon-home">
             ksd-metric
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -58,6 +59,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/example.html">Examples</a></li>
 </ul>
 
         </div>
@@ -66,18 +68,18 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">ksd-metric</a>
+          <a href="../index.html">ksd-metric</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">Documentation</a></li>
       <li class="breadcrumb-item active">utils</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/documentation/utils.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -89,13 +91,13 @@
 <span id="utils"></span><h1>utils<a class="headerlink" href="#module-ksd_metric.utils" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ksd_metric.utils.JaxKernelFunction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.utils.</span></span><span class="sig-name descname"><span class="pre">JaxKernelFunction</span></span><a class="reference internal" href="_modules/ksd_metric/utils/utils.html#JaxKernelFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ksd_metric.utils.</span></span><span class="sig-name descname"><span class="pre">JaxKernelFunction</span></span><a class="reference internal" href="../_modules/ksd_metric/utils/utils.html#JaxKernelFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to represent a JAX kernel function.
 This class is used to encapsulate the JAX kernel function and its associated parameters.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.utils.JaxKernelFunction.rbf">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/utils/utils.html#JaxKernelFunction.rbf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.rbf" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/utils/utils.html#JaxKernelFunction.rbf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.rbf" title="Link to this definition"></a></dt>
 <dd><p>Radial Basis Function (RBF) kernel, also known as Gaussian kernel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -109,7 +111,7 @@ This class is used to encapsulate the JAX kernel function and its associated par
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.utils.JaxKernelFunction.linear">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/utils/utils.html#JaxKernelFunction.linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.linear" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/utils/utils.html#JaxKernelFunction.linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.linear" title="Link to this definition"></a></dt>
 <dd><p>Linear kernel function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -123,7 +125,7 @@ This class is used to encapsulate the JAX kernel function and its associated par
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ksd_metric.utils.JaxKernelFunction.imq">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ksd_metric/utils/utils.html#JaxKernelFunction.imq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.imq" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">imq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ksd_metric/utils/utils.html#JaxKernelFunction.imq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ksd_metric.utils.JaxKernelFunction.imq" title="Link to this definition"></a></dt>
 <dd><p>Inverse Multiquadric kernel function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -144,6 +146,7 @@ This class is used to encapsulate the JAX kernel function and its associated par
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="target.html" class="btn btn-neutral float-left" title="target" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../examples/example.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
