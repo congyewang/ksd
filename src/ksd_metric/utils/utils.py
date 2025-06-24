@@ -10,10 +10,17 @@ class JaxKernelFunction:
 
     @staticmethod
     def rbf(
-        x: Float[Array, "num"], y: Float[Array, "num"], sigma: float = 1.0
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
+        sigma: float = 1.0,
     ) -> Float[Array, "num"]:
         """
         Radial Basis Function (RBF) kernel, also known as Gaussian kernel.
+
+        Args:
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
+            sigma (float): The bandwidth parameter for the RBF kernel.
 
         Returns:
             Float[Array, "num"]: The value of the RBF kernel at (x, y).
@@ -22,9 +29,16 @@ class JaxKernelFunction:
         return jnp.exp(-jnp.dot(diff, diff) / (2 * sigma**2))
 
     @staticmethod
-    def linear(x: Float[Array, "num"], y: Float[Array, "num"]) -> Float[Array, "num"]:
+    def linear(
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
+    ) -> Float[Array, "num"]:
         """
         Linear kernel function.
+
+        Args:
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The value of the linear kernel at (x, y).
@@ -40,6 +54,12 @@ class JaxKernelFunction:
     ) -> Float[Array, "num"]:
         """
         Inverse Multiquadric kernel function.
+
+        Args:
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
+            linv (Float[Array, "num num"]): Inverse of the length scale matrix.
+            beta (float): The shape parameter for the inverse multiquadric kernel.
 
         Returns:
             Float[Array, "num"]: The value of the inverse multiquadric kernel at (x, y).

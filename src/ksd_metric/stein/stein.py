@@ -12,25 +12,32 @@ from ..typing import ArrayLike
 
 class KernelSteinDiscrepancyInterface(ABC):
     def __init__(
-        self, target: TargetDistributionInterface, kernel: KernelInterface
+        self,
+        target: TargetDistributionInterface,
+        kernel: KernelInterface,
     ) -> None:
         """
         Initializes the KernelSteinDiscrepancyInterface with a target distribution.
 
         Args:
             target (TargetDistributionInterface): The target distribution interface.
+            kernel (KernelInterface): The kernel interface used for computing the Stein kernel.
         """
         self.target = target
         self.kernel = kernel
 
     @abstractmethod
-    def stein_kernel(self, x: ArrayLike, y: ArrayLike) -> ArrayLike:
+    def stein_kernel(
+        self,
+        x: ArrayLike,
+        y: ArrayLike,
+    ) -> ArrayLike:
         """
         Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.
 
         Args:
-            x (Float[Array, "num"]): First input data point.
-            y (Float[Array, "num"]): Second input data point.
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The value of the Stein kernel at (x, y).
@@ -38,7 +45,10 @@ class KernelSteinDiscrepancyInterface(ABC):
         raise NotImplementedError("stein_kernel must be implemented.")
 
     @abstractmethod
-    def kernel_stein_discrepancy(self, samples: ArrayLike) -> float:
+    def kernel_stein_discrepancy(
+        self,
+        samples: ArrayLike,
+    ) -> float:
         """
         Computes the kernel Stein discrepancy for the given samples.
 
@@ -68,14 +78,16 @@ class KernelSteinDiscrepancyJax(KernelSteinDiscrepancyInterface):
 
     @partial(jax.jit, static_argnums=(0,))
     def stein_kernel(
-        self, x: Float[Array, "num"], y: Float[Array, "num"]
+        self,
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
     ) -> Float[Array, "num"]:
         """
         Computes the Stein kernel using the base kernel function and the gradient of the log target PDF.
 
         Args:
-            x (Float[Array, "num"]): First input data point.
-            y (Float[Array, "num"]): Second input data point.
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The value of the Stein kernel at (x, y).
@@ -96,8 +108,18 @@ class KernelSteinDiscrepancyJax(KernelSteinDiscrepancyInterface):
 
     @partial(jax.jit, static_argnums=(0,))
     def _vectorised_kernel_stein_discrepancy(
-        self, samples: Float[Array, "num dim"]
+        self,
+        samples: Float[Array, "num dim"],
     ) -> Float[Array, "float"]:
+        """
+        Computes the kernel Stein discrepancy for a collection of samples.
+
+        Args:
+            samples (Float[Array, "num dim"]): A collection of samples from the target distribution.
+
+        Returns:
+            Float[Array, "float"]: The value of the kernel Stein discrepancy for the given samples
+        """
         num = samples.shape[0]
         k = jax.vmap(jax.vmap(self.stein_kernel, in_axes=(None, 0)), in_axes=(0, None))(
             samples, samples

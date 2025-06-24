@@ -9,7 +9,8 @@ from ..typing import ArrayLike, DifferentiableFunction
 
 class KernelInterface(ABC):
     def __init__(
-        self, base_kernel_function: Callable[[ArrayLike, ArrayLike], ArrayLike]
+        self,
+        base_kernel_function: Callable[[ArrayLike, ArrayLike], ArrayLike],
     ) -> None:
         """
         Initializes the KernelInterface with a base kernel function.
@@ -20,14 +21,18 @@ class KernelInterface(ABC):
         self._base_kernel_function = base_kernel_function
 
     @abstractmethod
-    def base_kernel_function(self, x: ArrayLike, y: ArrayLike) -> ArrayLike:
+    def base_kernel_function(
+        self,
+        x: ArrayLike,
+        y: ArrayLike,
+    ) -> ArrayLike:
         """
         Base kernel function to be implemented by subclasses.
         This function should return the base kernel function used in KSD.
 
         Args:
-            x (ArrayLike): First input data point.
-            y (ArrayLike): Second input data point.
+            x (ArrayLike): Input data point.
+            y (ArrayLike): Input data point.
 
         Returns:
             ArrayLike: The value of the base kernel function at (x, y).
@@ -36,7 +41,9 @@ class KernelInterface(ABC):
 
     @abstractmethod
     def partial_derivative_x_kernel_function(
-        self, x: ArrayLike, y: ArrayLike
+        self,
+        x: ArrayLike,
+        y: ArrayLike,
     ) -> ArrayLike:
         """
         Computes the partial derivative of the kernel function with respect to x.
@@ -54,14 +61,16 @@ class KernelInterface(ABC):
 
     @abstractmethod
     def partial_derivative_y_kernel_function(
-        self, x: ArrayLike, y: ArrayLike
+        self,
+        x: ArrayLike,
+        y: ArrayLike,
     ) -> ArrayLike:
         """
         Computes the partial derivative of the kernel function with respect to y.
 
         Args:
-            y (ArrayLike): Input data point.
             x (ArrayLike): Input data point.
+            y (ArrayLike): Input data point.
 
         Returns:
             ArrayLike: The partial derivative of the kernel function with respect to y.
@@ -72,14 +81,16 @@ class KernelInterface(ABC):
 
     @abstractmethod
     def cross_partial_derivative_kernel_function(
-        self, x: ArrayLike, y: ArrayLike
+        self,
+        x: ArrayLike,
+        y: ArrayLike,
     ) -> ArrayLike:
         """
         Computes the cross partial derivative of the kernel function with respect to x and y.
 
         Args:
-            x (ArrayLike): First input data point.
-            y (ArrayLike): Second input data point.
+            x (ArrayLike): Input data point.
+            y (ArrayLike): Input data point.
 
         Returns:
             ArrayLike: The cross partial derivative of the kernel function with respect to x and y.
@@ -94,7 +105,10 @@ class KernelJax(KernelInterface):
     Represents a kernel function for the KSD.
     """
 
-    def __init__(self, base_kernel_function: DifferentiableFunction) -> None:
+    def __init__(
+        self,
+        base_kernel_function: DifferentiableFunction,
+    ) -> None:
         """
         Initializes the kernel with a base kernel function.
 
@@ -104,15 +118,17 @@ class KernelJax(KernelInterface):
         super().__init__(base_kernel_function=base_kernel_function)
 
     def base_kernel_function(
-        self, x: Float[Array, "num"], y: Float[Array, "num"]
+        self,
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
     ) -> Float[Array, "num"]:
         """
         Base kernel function to be implemented by subclasses.
         This function should return the base kernel function used in KSD.
 
         Args:
-            x (Float[Array, "num"]): First input data point.
-            y (Float[Array, "num"]): Second input data point.
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The value of the base kernel function at (x, y).
@@ -120,13 +136,16 @@ class KernelJax(KernelInterface):
         return self._base_kernel_function(x, y)
 
     def partial_derivative_x_kernel_function(
-        self, x: Float[Array, "num"], y: Float[Array, "num"]
+        self,
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
     ) -> Float[Array, "num"]:
         """
         Computes the partial derivative of the kernel function with respect to x.
 
         Args:
             x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The partial derivative of the kernel function with respect to x.
@@ -134,12 +153,15 @@ class KernelJax(KernelInterface):
         return jit(jacfwd(self.base_kernel_function, argnums=0))(x, y)
 
     def partial_derivative_y_kernel_function(
-        self, x: Float[Array, "num"], y: Float[Array, "num"]
+        self,
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
     ) -> Float[Array, "num"]:
         """
         Computes the partial derivative of the kernel function with respect to y.
 
         Args:
+            x (Float[Array, "num"]): Input data point.
             y (Float[Array, "num"]): Input data point.
 
         Returns:
@@ -148,14 +170,16 @@ class KernelJax(KernelInterface):
         return jit(jacfwd(self.base_kernel_function, argnums=1))(x, y)
 
     def cross_partial_derivative_kernel_function(
-        self, x: Float[Array, "num"], y: Float[Array, "num"]
+        self,
+        x: Float[Array, "num"],
+        y: Float[Array, "num"],
     ) -> Float[Array, "num"]:
         """
         Computes the cross partial derivative of the kernel function with respect to x and y.
 
         Args:
-            x (Float[Array, "num"]): First input data point.
-            y (Float[Array, "num"]): Second input data point.
+            x (Float[Array, "num"]): Input data point.
+            y (Float[Array, "num"]): Input data point.
 
         Returns:
             Float[Array, "num"]: The cross partial derivative of the kernel function with respect to x and y.

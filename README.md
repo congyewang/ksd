@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="ksd-metric logo" width="200"/>
+  <img src="assets/logo.svg" alt="ksd-metric logo" width="300"/>
 </p>
 
 [![PyPI version](https://img.shields.io/pypi/v/ksd-metric.svg)](https://pypi.org/project/ksd-metric/)
