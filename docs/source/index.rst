@@ -10,4 +10,5 @@ ksd-matrix documentation
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   documentation/modules
+   examples/example
